@@ -15,7 +15,7 @@
 static void	init_vert(t_player *p, t_float2 *b, t_float2 *diff, float angle)
 {
 	b->x = floorf((float)p->x / CUBE) * CUBE;
-	b->x = angle > RAD_270 || angle < RAD_90 ? b->x + CUBE : b->x;
+	b->x = b->x + (angle > RAD_270 || angle < RAD_90) * CUBE;
 	b->y = p->y + (p->x - b->x) * tanf(angle);
 	diff->y = CUBE * tanf(angle);
 	if (angle > RAD_270 && angle < RAD_360)
