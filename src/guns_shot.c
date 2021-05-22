@@ -55,7 +55,8 @@ void	render_shot(t_wolf *wolf, SDL_Surface *surface)
 			wolf->bon->start_guns = SDL_GetTicks();
 		}
 		guns_shot(surface, wolf->bon->flag_guns, wolf->bon);
-		wolf->bon->flag_guns == 5 ? wolf->bon->flag_guns = 0 : 0;
+		if (wolf->bon->flag_guns == 5)
+			wolf->bon->flag_guns = 0;
 	}
 	else
 		guns_shot(surface, 1, wolf->bon);
