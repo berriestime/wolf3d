@@ -70,7 +70,7 @@ $(NAME): $(LIBFT) $(OBJS)
 	$(CC) $(FLAGS) $(OBJS) -L $(LIBFT_DIR) -lft -o $@ $(SDL_INCS) $(FRAMEWORKS)
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c $(INCLUDES) | $(OBJDIR)
-	$(CC) $(FLAGS) -I./includes -I.$(LIBFT_DIR)/includes $(SDL_INCS)  -c $< -o $@ 
+	$(CC) $(FLAGS) -I./includes -I./frameworks -I$(LIBFT_DIR)/includes $(SDL_INCS)  -c $< -o $@
 
 $(OBJDIR):
 	/bin/mkdir -p $(OBJDIR)
