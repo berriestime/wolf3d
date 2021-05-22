@@ -99,13 +99,6 @@ void	draw_background(SDL_Surface *surface)
 	}
 }
 
-int	check_draw_minimap(bool status, t_wolf *wolf, t_map *map, t_player *p)
-{
-	if (!status)
-		return (0);
-	return (draw_minimap(wolf, map, p));
-}
-
 int	draw_minimap(t_wolf *wolf, t_map *map, t_player *p)
 {
 	int		i;

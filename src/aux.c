@@ -57,13 +57,6 @@ int	draw_menu_text(t_wolf *wolf, SDL_Color f_b_color[2])
 	return (1);
 }
 
-int	check_draw_menu(bool status, t_wolf *wolf)
-{
-	if (!status)
-		return (0);
-	return (draw_menu(wolf));
-}
-
 int	draw_menu(t_wolf *wolf)
 {
 	SDL_Color	f_b_color[2];

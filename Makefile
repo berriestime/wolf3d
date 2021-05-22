@@ -29,7 +29,10 @@ ALL_C = main.c \
 		render_coin.c \
 		move.c \
 		init_bonus.c \
-		set_sdl.c
+		set_sdl.c \
+		aux_check.c \
+		draw_check.c \
+		error_check.c
 
 SRCDIR = ./src
 OBJDIR = ./objs
