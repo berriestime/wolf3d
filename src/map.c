@@ -114,17 +114,17 @@ static void	check_start(t_wolf *wolf)
 
 void	init_map(t_wolf *wolf, char *map_name)
 {
-	int	map_size;
+	int		map_size;
 	char	*str_map;
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 
 	if (ft_strcmp((char *)(map_name + ft_strlen(map_name) - 4), ".txt"))
 		error(wolf, ERR_MAP_NOT_TXT);
 	str_map = get_map(wolf, &map_size, map_name);
 	validate_map(wolf, str_map, map_size);
 	wolf->map->map = ft_strnew(wolf->map->h * wolf->map->w);
-	!wolf->map->map ? error(wolf, ERR_MALLOC) : 1;
+	check_error(!wolf->map->map, wolf, ERR_MALLOC);
 	i = -1;
 	j = 0;
 	while (++i < map_size)
