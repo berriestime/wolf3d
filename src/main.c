@@ -32,8 +32,8 @@ static t_wolf	*t_wolf_new(void)
 {
 	t_wolf		*new;
 
-	!(new = (t_wolf *)malloc(sizeof(t_wolf))) ? error(new, ERR_MALLOC) : 0;
-	!(new->map = (t_map *)malloc(sizeof(t_map))) ? error(new, ERR_MALLOC) : 0;
+	check_error(!(new = (t_wolf *)malloc(sizeof(t_wolf))), new, ERR_MALLOC);
+	check_error(!(new->map = (t_map *)malloc(sizeof(t_map))), new, ERR_MALLOC);
 	new->player = (t_player *)malloc(sizeof(t_player));
 	if (!(new->player))
 		error(new, ERR_MALLOC);
