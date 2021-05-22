@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-char		*ft_bintmltpl(char *num, int multiplier)
+char	*ft_bintmltpl(char *num, int multiplier)
 {
 	int8_t	tmp;
 	int32_t	carry;

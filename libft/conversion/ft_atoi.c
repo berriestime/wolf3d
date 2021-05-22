@@ -12,7 +12,7 @@
 
 #define MAX 9223372036854775807
 
-int						ft_atoi(const char *s)
+int	ft_atoi(const char *s)
 {
 	unsigned long long	n;
 	int					sign;

@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static void		normalize_integers(char **arg1, char **arg2)
+static void	normalize_integers(char **arg1, char **arg2)
 {
 	size_t		len_arg1;
 	size_t		len_arg2;
@@ -27,7 +27,7 @@ static void		normalize_integers(char **arg1, char **arg2)
 				*arg1, 1, 1);
 }
 
-static void		normalize_decimals(char **arg1, char **arg2)
+static void	normalize_decimals(char **arg1, char **arg2)
 {
 	char		*decpt_1;
 	char		*decpt_2;
@@ -55,7 +55,7 @@ static void		normalize_decimals(char **arg1, char **arg2)
 	}
 }
 
-void			ft_bintprepr(char **arg1, char **arg2)
+void	ft_bintprepr(char **arg1, char **arg2)
 {
 	char		*dup_arg1;
 	char		*dup_arg2;

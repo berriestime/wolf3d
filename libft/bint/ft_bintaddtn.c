@@ -62,7 +62,7 @@ static char	*sign_handler(char operation, char **arg1, char **arg2)
 	return (str);
 }
 
-char		*ft_bintaddtn(char *arg1, char *arg2)
+char	*ft_bintaddtn(char *arg1, char *arg2)
 {
 	char	*arg1_dup;
 	char	*arg2_dup;

@@ -14,7 +14,7 @@
 #include <fcntl.h>
 #include <stdio.h>
 
-static void		copy_to_heapfd(char **heapfd, char *stack)
+static void	copy_to_heapfd(char **heapfd, char *stack)
 {
 	char		*tmp;
 	size_t		len;
@@ -35,7 +35,7 @@ static void		copy_to_heapfd(char **heapfd, char *stack)
 	free(tmp);
 }
 
-static void		get_line_from_heapfd(char **heapfd, char **line,
+static void	get_line_from_heapfd(char **heapfd, char **line,
 		char *n, int len_before_n)
 {
 	char		*tmp;
@@ -51,7 +51,7 @@ static void		get_line_from_heapfd(char **heapfd, char **line,
 	free(tmp);
 }
 
-int				get_next_line(int const fd, char **line)
+int	get_next_line(int const fd, char **line)
 {
 	static char	*heap[11000];
 	char		stack[BUFF_SIZE + 1];

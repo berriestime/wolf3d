@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int			is_banking_rounding(char *decimal, int prec)
+int	is_banking_rounding(char *decimal, int prec)
 {
 	int		i;
 
@@ -60,7 +60,7 @@ static char	*ft_bintround(char *num, int prec)
 	return (num);
 }
 
-char		*ft_bintroundfree(char *num, int precision, int free_num)
+char	*ft_bintroundfree(char *num, int precision, int free_num)
 {
 	char	*str;
 

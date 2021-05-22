@@ -12,7 +12,7 @@
 
 #include "dlist.h"
 
-t_dlist			*t_dlist_new(void)
+t_dlist	*t_dlist_new(void)
 {
 	t_dlist		*new;
 
@@ -43,7 +43,7 @@ t_dlist_node	*t_dlist_pop(t_dlist *list, t_dlist_node *node)
 	return (node);
 }
 
-t_dlist			*t_dlist_remove_node(t_dlist *list, t_dlist_node *node)
+t_dlist	*t_dlist_remove_node(t_dlist *list, t_dlist_node *node)
 {
 	t_dlist_pop(list, node);
 	free(node);

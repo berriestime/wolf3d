@@ -12,7 +12,7 @@
 
 #include "dlist.h"
 
-t_dlist_node		*t_dlist_node_new(void *data)
+t_dlist_node	*t_dlist_node_new(void *data)
 {
 	t_dlist_node	*new;
 
@@ -28,7 +28,7 @@ t_dlist_node		*t_dlist_node_new(void *data)
 ** Add new node and set it to go the given pointer
 */
 
-t_dlist_node		*t_dlist_insert_after(t_dlist *list,
+t_dlist_node	*t_dlist_insert_after(t_dlist *list,
 t_dlist_node *node, t_dlist_node *new)
 {
 	new->prev = node;
@@ -44,7 +44,7 @@ t_dlist_node *node, t_dlist_node *new)
 	return (new);
 }
 
-t_dlist_node		*t_dlist_insert_before(t_dlist *list,
+t_dlist_node	*t_dlist_insert_before(t_dlist *list,
 t_dlist_node *node, t_dlist_node *new)
 {
 	new->next = node;
@@ -64,7 +64,7 @@ t_dlist_node *node, t_dlist_node *new)
 ** add to the front of list
 */
 
-t_dlist_node		*t_dlist_push(t_dlist *list, t_dlist_node *new)
+t_dlist_node	*t_dlist_push(t_dlist *list, t_dlist_node *new)
 {
 	if (!list->head)
 	{
@@ -78,7 +78,7 @@ t_dlist_node		*t_dlist_push(t_dlist *list, t_dlist_node *new)
 	return (new);
 }
 
-t_dlist_node		*t_dlist_append(t_dlist *list, t_dlist_node *new)
+t_dlist_node	*t_dlist_append(t_dlist *list, t_dlist_node *new)
 {
 	if (!list->tail)
 		t_dlist_push(list, new);

@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-char		*ft_utoa_base(uintmax_t n, int precision)
+char	*ft_utoa_base(uintmax_t n, int precision)
 {
 	uint8_t	len;
 	char	*str;

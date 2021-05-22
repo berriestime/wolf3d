@@ -17,7 +17,7 @@
 #define MAX15BITS       0x7FFF
 #define LDBL_MASK         9223372036854775808u
 
-static char			*ldouble_is_exception(t_long_double num)
+static char	*ldouble_is_exception(t_long_double num)
 {
 	char			*str;
 	int				ldbl_exponent_max;
@@ -36,7 +36,7 @@ static char			*ldouble_is_exception(t_long_double num)
 	return (str);
 }
 
-char				*ft_ldtoa(long double n, int precision)
+char	*ft_ldtoa(long double n, int precision)
 {
 	t_long_double	num;
 	char			*str;
