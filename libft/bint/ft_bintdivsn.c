@@ -19,7 +19,7 @@ static void	initializer(int *carry, int *i, char **n, char **s)
 	*s = *n;
 }
 
-char		*ft_bintdivsn(char *n, int divider)
+char	*ft_bintdivsn(char *n, int divider)
 {
 	int		carry;
 	int		sum;

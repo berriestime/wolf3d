@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-char		*ft_bintsubtrn(char *operand_1, char *operand_2)
+char	*ft_bintsubtrn(char *operand_1, char *operand_2)
 {
 	char	*str;
 	int32_t	borrowed;

@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int			ft_bintcmp(char *arg1, char *arg2)
+int	ft_bintcmp(char *arg1, char *arg2)
 {
 	int8_t	compare;
 
