@@ -49,7 +49,10 @@ void	draw_sky(t_wolf *wolf, int x, int y)
 	i = -1;
 	while (++i < y)
 	{
-		to_draw = i < wolf->sdl->sky->h - 1 ? i : wolf->sdl->sky->h / 2;
+		if (i < wolf->sdl->sky->h - 1)
+			to_draw = i;
+		else
+			to_draw = wolf->sdl->sky->h / 2;
 		set_pixel(wolf->surface, x, i, get_pixel(wolf->sdl->sky, \
 		x + wolf->sdl->skybox_offset, to_draw));
 	}
