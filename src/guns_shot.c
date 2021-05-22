@@ -12,6 +12,13 @@
 
 #include "wolf3d.h"
 
+static void	check_SDL_BlitScaled(bool status, void **ptrs)
+{
+	if (!status)
+		return ;
+	SDL_BlitScaled(ptrs[0], ptrs[1], ptrs[2], ptrs[3]);
+}
+
 void	guns_shot(SDL_Surface *screen, int flag, t_bonus *bon)
 {
 	if (flag == 2)
@@ -20,16 +27,16 @@ void	guns_shot(SDL_Surface *screen, int flag, t_bonus *bon)
 		Mix_PlayChannel(1, bon->music_guns, 0);
 		Mix_VolumeMusic(5);
 	}
-	flag == 1 ? SDL_BlitScaled(bon->image_1, NULL, screen, \
-	&bon->img_location) : 0;
-	flag == 2 ? SDL_BlitScaled(bon->image_2, NULL, screen, \
-	&bon->img_location) : 0;
-	flag == 3 ? SDL_BlitScaled(bon->image_3, NULL, screen, \
-	&bon->img_location) : 0;
-	flag == 4 ? SDL_BlitScaled(bon->image_4, NULL, screen, \
-	&bon->img_location) : 0;
-	flag == 5 ? SDL_BlitScaled(bon->image_5, NULL, screen, \
-	&bon->img_location) : 0;
+	check_SDL_BlitScaled(flag == 1, (void *[4]){bon->image_1, NULL, screen, \
+	&bon->img_location});
+	check_SDL_BlitScaled(flag == 2, (void *[4]){bon->image_2, NULL, screen, \
+	&bon->img_location});
+	check_SDL_BlitScaled(flag == 3, (void *[4]){bon->image_3, NULL, screen, \
+	&bon->img_location});
+	check_SDL_BlitScaled(flag == 4, (void *[4]){bon->image_4, NULL, screen, \
+	&bon->img_location});
+	check_SDL_BlitScaled(flag == 5, (void *[4]){bon->image_5, NULL, screen, \
+	&bon->img_location});
 }
 
 void	render_shot(t_wolf *wolf, SDL_Surface *surface)
