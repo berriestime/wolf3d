@@ -14,12 +14,12 @@
 
 static void	validate_map(t_wolf *wolf, char *map, int map_size)
 {
-	int		len_first;
+	int		first;
 	int		curr_start;
 	int		i;
 
 	i = 0;
-	len_first = -1;
+	first = -1;
 	wolf->map->h = 0;
 	while (i < map_size)
 	{
@@ -30,15 +30,15 @@ static void	validate_map(t_wolf *wolf, char *map, int map_size)
 				error_inv_c(wolf, ERR_MAP_CHAR, map[i]);
 			i++;
 		}
-		i - curr_start < MAP_MIN_COL_NUM ? \
-			error_inv_n(wolf, ERR_MAP_COL_NUM, wolf->map->h + 1) : 0;
-		len_first = len_first == -1 ? i - curr_start : len_first;
-		len_first != i - curr_start ? error(wolf, ERR_MAP_NOT_RECT) : 0;
+		check_error_inv_n(i - curr_start < MAP_MIN_COL_NUM,
+			wolf, ERR_MAP_COL_NUM, wolf->map->h + 1);
+		first = (first == -1) * (i - curr_start) + (first != -1) * first;
+		check_error(first != i - curr_start, wolf, ERR_MAP_NOT_RECT);
 		i++;
 		wolf->map->h++;
 	}
-	wolf->map->h < MAP_MIN_ROW_NUM ? error(wolf, ERR_MAP_ROW_NUM) : 0;
-	wolf->map->w = len_first;
+	check_error(wolf->map->h < MAP_MIN_ROW_NUM, wolf, ERR_MAP_ROW_NUM);
+	wolf->map->w = first;
 }
 
 static char	*get_map(t_wolf *wolf, int *was_read, char *map_name)
