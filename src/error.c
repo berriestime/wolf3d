@@ -15,7 +15,7 @@
 int	check_error(bool status, t_wolf *wolf, const char *s)
 {
 	if (!status)
-		return ;
+		return (0);
 	return (error(wolf, s));
 }
 
@@ -47,7 +47,7 @@ int	error_inv_c(t_wolf *wolf, char *s, char inv_char)
 int	check_error_inv_n(bool status, t_wolf *wolf, char *s, int inv_num)
 {
 	if (!status)
-		return ;
+		return (0);
 	return (error_inv_n(wolf, s, inv_num));
 }
 
