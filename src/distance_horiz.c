@@ -16,7 +16,7 @@ static void	init_horiz(t_player *p, t_float2 *a,
 t_float2 *diff, float angle)
 {
 	a->y = floorf((float)p->y / CUBE) * CUBE;
-	a->y = angle > RAD_0 && angle < RAD_180 ? a->y : a->y + CUBE;
+	a->y = a->y + (angle > RAD_0 && angle < RAD_180) * CUBE;
 	a->x = p->x + (p->y - a->y) / tanf(angle);
 	diff->x = CUBE / tanf(angle);
 	if (angle > RAD_270 && angle < RAD_360)
