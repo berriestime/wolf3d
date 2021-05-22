@@ -100,16 +100,16 @@ static void	check_start(t_wolf *wolf)
 			wolf->bon->coint_pos.y = ((i / wolf->map->w) + 0.5) * CUBE;
 			wolf->bon->coint_pos.x = ((i % wolf->map->w) + 0.5) * CUBE;
 			map->map[i] = TEX_FLOOR;
-			++start_coin_counter[1] > 1 ? error(wolf, ERR_MAP_MULT_COIN) : 0;
+			check_error(++start_coin_counter[1] > 1, wolf, ERR_MAP_MULT_COIN);
 		}
 		if (map->map[i] == TEX_START)
 		{
 			map->player_start = i;
 			map->map[i] = TEX_FLOOR;
-			++start_coin_counter[0] > 1 ? error(wolf, ERR_MAP_MULT_START) : 0;
+			check_error(++start_coin_counter[0] > 1, wolf, ERR_MAP_MULT_START);
 		}
 	}
-	!start_coin_counter[0] ? error(wolf, ERR_MAP_NO_START) : 0;
+	check_error(!start_coin_counter[0], wolf, ERR_MAP_NO_START);
 }
 
 void	init_map(t_wolf *wolf, char *map_name)
