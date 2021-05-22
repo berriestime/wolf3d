@@ -22,9 +22,9 @@ t_point start, t_point end, int color)
 
 	d.x = abs(end.x - start.x);
 	d.y = abs(end.y - start.y);
-	s.x = start.x < end.x ? 1 : -1;
-	s.y = start.y < end.y ? 1 : -1;
-	err = (d.x > d.y ? d.x : -d.y) / 2;
+	s.x = (start.x < end.x) + (start.x >= end.x) * -1;
+	s.y = (start.y < end.y) + (start.y >= end.y) * -1;
+	err = (d.x > d.y) * d.x / 2 + (d.x <= d.y) * -d.y / 2;
 	while (1)
 	{
 		if (start.x > W || start.x < 0 || start.y > H || start.y < 0)
@@ -33,10 +33,10 @@ t_point start, t_point end, int color)
 		if (start.x == end.x && start.y == end.y)
 			break ;
 		e2 = err;
-		err = e2 > -d.x ? err - d.y : err;
-		start.x = e2 > -d.x ? start.x + s.x : start.x;
-		err = e2 < d.y ? err + d.x : err;
-		start.y = e2 < d.y ? start.y + s.y : start.y;
+		err = err - (e2 > -d.x) * d.y;
+		start.x = start.x + (e2 > -d.x) * s.x;
+		err = err + (e2 < d.y) * d.x;
+		start.y = start.y + (e2 < d.y) * s.y;
 	}
 }
 
