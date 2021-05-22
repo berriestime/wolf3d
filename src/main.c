@@ -61,9 +61,9 @@ int	main(int a, char **b)
 
 	wolf = NULL;
 	validate_const(wolf);
-	a != 2 ? error(wolf, ERR_USAGE) : 0;
-	SDL_Init(SDL_INIT_EVERYTHING) != 0 ? error(wolf, SDL_GetError()) : 0;
-	TTF_Init() != 0 ? error(wolf, SDL_GetError()) : 0;
+	check_error(a != 2, wolf, ERR_USAGE);
+	check_error(SDL_Init(SDL_INIT_EVERYTHING) != 0, wolf, SDL_GetError());
+	check_error(TTF_Init() != 0, wolf, SDL_GetError());
 	wolf = t_wolf_new();
 	init_map(wolf, b[1]);
 	init_player(wolf, wolf->player, wolf->map);
