@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/wolf3d.h"
+#include "wolf3d.h"
 
 static void	init_vert(t_player *p, t_float2 *b, t_float2 *diff, float angle)
 {

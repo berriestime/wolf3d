@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/wolf3d.h"
+#include "wolf3d.h"
 
 void	set_pixel(SDL_Surface *surface, int x, int y, Uint32 pixel)
 {
