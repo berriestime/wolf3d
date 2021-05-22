@@ -146,6 +146,8 @@ typedef struct s_wolf
 ** draw.c
 */
 void			draw_background(SDL_Surface *surface);
+int				check_draw_minimap(bool status,
+					t_wolf *wolf, t_map *map, t_player *p);
 int				draw_minimap(t_wolf *wolf, t_map *map, t_player *p);
 void			draw_ray(t_wolf *wolf, float player, int x, int y);
 void			draw_line(SDL_Surface *surface, t_point start, t_point end, \
@@ -218,6 +220,7 @@ void			init_bonus_load(t_wolf *wolf);
 /*
 ** aux.c
 */
+int				check_draw_menu(bool status, t_wolf *wolf);
 int				draw_menu(t_wolf *wolf);
 int				draw_menu_text(t_wolf *wolf, SDL_Color f_b_color[2]);
 int				add_arc(float *arc, float to_add);
