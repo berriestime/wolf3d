@@ -59,9 +59,9 @@ static void	handle_keys(t_wolf *wolf, SDL_Event *event, t_map *map,
 	if ((s[SDL_SCANCODE_LEFT] || s[SDL_SCANCODE_Q]) && add_arc(&p->dir, RAD_30))
 		add_skybox_offset(wolf->sdl, -52);
 	if (s[SDL_SCANCODE_P])
-		wolf->sdl->sides_mode = wolf->sdl->sides_mode == 1 ? 0 : 1;
+		wolf->sdl->sides_mode = wolf->sdl->sides_mode != 1;
 	if (s[SDL_SCANCODE_M])
-		map->mm_show = map->mm_show == 1 ? 0 : 1;
+		map->mm_show = map->mm_show != 1;
 	handle_other_keys(wolf);
 }
 
