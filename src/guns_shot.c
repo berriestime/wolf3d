@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/wolf3d.h"
+#include "wolf3d.h"
 
 void	guns_shot(SDL_Surface *screen, int flag, t_bonus *bon)
 {

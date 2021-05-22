@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/wolf3d.h"
+#include "wolf3d.h"
 
 void	draw_column(t_wolf *wolf,
 t_point point, t_distance *dist, int size)
