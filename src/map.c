@@ -48,8 +48,8 @@ static char	*get_map(t_wolf *wolf, int *was_read, char *map_name)
 
 	s = ft_strnew(MAP_MAX_SIZE + 1);
 	fd = open(map_name, O_RDONLY);
-	fd < 0 ? error(wolf, ERR_FILE_OPEN) : 0;
-	read(fd, s, 0) < 0 ? error(wolf, ERR_FILE_READ) : 0;
+	check_error(fd < 0, wolf, ERR_FILE_OPEN);
+	check_error(read(fd, s, 0) < 0, wolf, ERR_FILE_READ);
 	*was_read = read(fd, s, MAP_MAX_SIZE + 1);
 	if (*was_read > MAP_MAX_SIZE)
 		error(wolf, ERR_MAP_BIG);
