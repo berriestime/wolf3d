@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/wolf3d.h"
+#include "wolf3d.h"
 
 t_point	dot(int x, int y)
 {

@@ -13,13 +13,13 @@
 #ifndef WOLF3D_H
 # define WOLF3D_H
 
-# include "../frameworks/SDL2.framework/Headers/SDL.h"
-# include "../frameworks/SDL2_ttf.framework/Headers/SDL_ttf.h"
-# include "../frameworks/SDL2_image.framework/Headers/SDL_image.h"
-# include "../frameworks/SDL2_mixer.framework/Headers/SDL_mixer.h"
+# include "SDL2.framework/Headers/SDL.h"
+# include "SDL2_ttf.framework/Headers/SDL_ttf.h"
+# include "SDL2_image.framework/Headers/SDL_image.h"
+# include "SDL2_mixer.framework/Headers/SDL_mixer.h"
 # include <stdbool.h>
 # include <fcntl.h>
-# include "../libft/includes/ft_printf.h"
+# include "ft_printf.h"
 # include <math.h>
 # include "const.h"
 # include "colors.h"
