@@ -23,7 +23,9 @@ t_point	dot(int x, int y)
 
 int	max(int a, int b)
 {
-	return (a > b ? a : b);
+	if (a > b)
+		return (a);
+	return (b);
 }
 
 static t_wolf	*t_wolf_new(void)
