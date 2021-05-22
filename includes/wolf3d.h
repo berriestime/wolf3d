@@ -192,11 +192,13 @@ void			init_map(t_wolf *wolf, char *b);
 /*
 ** error.q
 */
+int				check_error_free_s(bool status, t_wolf *wolf, char *s);
 int				error_free_s(t_wolf *wolf, char *s);
 int				check_error(bool status, t_wolf *wolf, const char *s);
 int				error(t_wolf *wolf, const char *s);
 int				error_inv_c(t_wolf *wolf, char *s, char inv_char);
-int				check_error_inv_n(bool status, t_wolf *wolf, char *s, int inv_num);
+int				check_error_inv_n(bool status,
+					t_wolf *wolf, char *s, int inv_num);
 int				error_inv_n(t_wolf *wolf, char *s, int inv_num);
 
 /*

@@ -30,7 +30,7 @@ int	error(t_wolf *wolf, const char *s)
 int	check_error_free_s(bool status, t_wolf *wolf, char *s)
 {
 	if (!status)
-		return ;
+		return (0);
 	return (error_free_s(wolf, s));
 }
 
