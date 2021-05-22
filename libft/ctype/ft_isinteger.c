@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int			is_integer(char *s)
+int	is_integer(char *s)
 {
 	size_t	len;
 	int		n;
