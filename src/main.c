@@ -49,10 +49,10 @@ static t_wolf	*t_wolf_new(void)
 
 static void	validate_const(t_wolf *wolf)
 {
-	H > W ? error(wolf, ERR_INV_H) : 0;
-	H < 300 || W < 384 ? error(wolf, ERR_INV_RES) : 0;
-	H > H_MAX ? error_inv_n(wolf, ERR_H_MAX, H_MAX) : 0;
-	W > W_MAX ? error_inv_n(wolf, ERR_W_MAX, W_MAX) : 0;
+	check_error(H > W, wolf, ERR_INV_H);
+	check_error(H < 300 || W < 384, wolf, ERR_INV_RES);
+	check_error_inv_n(H > H_MAX, wolf, ERR_H_MAX, H_MAX);
+	check_error_inv_n(W > W_MAX, wolf, ERR_W_MAX, W_MAX);
 }
 
 int	main(int a, char **b)

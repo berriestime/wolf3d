@@ -12,7 +12,14 @@
 
 #include "wolf3d.h"
 
- int	error(t_wolf *wolf, const char *s)
+int	check_error(bool status, t_wolf *wolf, const char *s)
+{
+	if (!status)
+		return ;
+	return (error(wolf, s));
+}
+
+int	error(t_wolf *wolf, const char *s)
 {
 	ft_dprintf(STDERR_FILENO, "%s%s%s\n", C_RED, s, C_NRM);
 	exit(EXIT_FAILURE);
@@ -35,6 +42,13 @@ int	error_inv_c(t_wolf *wolf, char *s, char inv_char)
 	exit(EXIT_FAILURE);
 	wolf->error_code = 1;
 	return (wolf->error_code);
+}
+
+int	check_error_inv_n(bool status, t_wolf *wolf, char *s, int inv_num)
+{
+	if (!status)
+		return ;
+	return (error_inv_n(wolf, s, inv_num));
 }
 
 int	error_inv_n(t_wolf *wolf, char *s, int inv_num)
