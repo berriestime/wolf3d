@@ -76,11 +76,11 @@ static void	check_logic(t_wolf *wolf)
 	i = -1;
 	while (++i < map->h)
 	{
-		if (!ft_strchr(WALLSET, map->map[i * map->w]) ||
-		!ft_strchr(WALLSET, map->map[i * map->w + (map->w - 1)]))
+		if (!ft_strchr(WALLSET, map->map[i * map->w])
+			|| !ft_strchr(WALLSET, map->map[i * map->w + (map->w - 1)]))
 			ft_asprintf(&s, ERR_MAP_BORDER_ROW, i + 1);
 	}
-	s ? error_free_s(wolf, s) : 0;
+	check_error_free_s(s, wolf, s);
 }
 
 static void	check_start(t_wolf *wolf)

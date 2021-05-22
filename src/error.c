@@ -27,6 +27,13 @@ int	error(t_wolf *wolf, const char *s)
 	return (wolf->error_code);
 }
 
+int	check_error_free_s(bool status, t_wolf *wolf, char *s)
+{
+	if (!status)
+		return ;
+	return (error_free_s(wolf, s));
+}
+
 int	error_free_s(t_wolf *wolf, char *s)
 {
 	ft_dprintf(STDERR_FILENO, "%s%s%s\n", C_RED, s, C_NRM);
