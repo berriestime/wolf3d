@@ -138,8 +138,8 @@ void	render_coin(t_wolf *wolf, SDL_Surface *surface)
 		* (wolf->bon->image_coin->w + 1) / ((W / 32) \
 		* (wolf->player->dist_to_canvas / coin.dist)));
 	coin.cut_vertical_img.h = (wolf->bon->image_coin->w + 1);
-	coin.cut_vertical_img.x = (int)(coin.flag_1 * (wolf->bon->image_coin->w + 1) \
-	/ ((W / 32) * (wolf->player->dist_to_canvas / coin.dist)));
+	coin.cut_vertical_img.x = (int)(coin.flag_1 * (wolf->bon->image_coin->w
+				+ 1) / ((W / 32) * (wolf->player->dist_to_canvas / coin.dist)));
 	coin.cut_vertical_img.y = 0;
 	coin.img_location.w = (coin.flag_2 - coin.flag_1);
 	coin.img_location.h = (W / 32) * (wolf->player->dist_to_canvas / coin.dist);
