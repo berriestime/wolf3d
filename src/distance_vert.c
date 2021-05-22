@@ -40,6 +40,26 @@ static void	init_vert(t_player *p, t_float2 *b, t_float2 *diff, float angle)
 	}
 }
 
+static char	decide_sides_maybe_w(bool sides_mode, t_wolf *wolf, t_float2 *b)
+{
+	size_t	offset;
+
+	if (sides_mode)
+		return ('w');
+	offset = ((int)b->y / CUBE) * wolf->map->w + ((int)(b->x - 1) / CUBE);
+	return (wolf->map->map[offset]);
+}
+
+static char	decide_sides_maybe_e(bool sides_mode, t_wolf *wolf, t_float2 *b)
+{
+	size_t	offset;
+
+	if (sides_mode)
+		return ('e');
+	offset = ((int)b->y / CUBE) * wolf->map->w + ((int)b->x / CUBE);
+	return (wolf->map->map[offset]);
+}
+
 static int	calc_vert(t_wolf *wolf, t_float2 *b,
 t_distance *dist, float angle)
 {
@@ -49,9 +69,7 @@ t_distance *dist, float angle)
 	{
 		dist->dist = fabsf((wolf->player->x - b->x) / cosf(angle));
 		dist->offsetx = (int)b->y % CUBE;
-		dist->tex = wolf->sdl->sides_mode ? 'w' : \
-			wolf->map->map[((int)b->y / CUBE) \
-			*wolf->map->w + ((int)(b->x - 1) / CUBE)];
+		dist->tex = decide_sides_maybe_w(wolf->sdl->sides_mode, wolf, b);
 		return (1);
 	}
 	else if (ft_strchr(WALLSET, wolf->map->map[((int)b->y / CUBE) \
@@ -59,9 +77,7 @@ t_distance *dist, float angle)
 	{
 		dist->dist = fabsf((wolf->player->x - b->x) / cosf(angle));
 		dist->offsetx = (int)b->y % CUBE;
-		dist->tex = wolf->sdl->sides_mode ? 'e' : \
-			wolf->map->map[((int)b->y / CUBE) \
-			* wolf->map->w + ((int)b->x / CUBE)];
+		dist->tex = decide_sides_maybe_e(wolf->sdl->sides_mode, wolf, b);
 		return (1);
 	}
 	return (0);
