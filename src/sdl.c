@@ -15,11 +15,11 @@
 static void	handle_other_keys(t_wolf *wolf)
 {
 	if (wolf->sdl->state[SDL_SCANCODE_I])
-		wolf->bon->fps = wolf->bon->fps == 0 ? 1 : 0;
+		wolf->bon->fps = wolf->bon->fps == 0;
 	if (wolf->sdl->state[SDL_SCANCODE_SPACE])
 		wolf->bon->guns_fire = 1;
 	if (wolf->sdl->state[SDL_SCANCODE_H])
-		wolf->sdl->menu = wolf->sdl->menu ? 0 : 1;
+		wolf->sdl->menu = !wolf->sdl->menu;
 	if (wolf->sdl->state[SDL_SCANCODE_O])
 	{
 		if (wolf->bon->music_flag == 0)
