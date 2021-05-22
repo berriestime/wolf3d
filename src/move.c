@@ -40,11 +40,17 @@ void	calc_move(t_map *map, t_player *p, float dy, float dx)
 {
 	int		player_box;
 
-	player_box = dx > 0 ? p->size : -p->size;
+	if (dx > 0)
+		player_box = p->size;
+	else
+		player_box = -p->size;
 	if (is_texture(map, p->x + dx + player_box, p->y, TEX_FLOOR) \
 	|| is_texture(map, p->x + dx + player_box, p->y, TEX_COIN))
 		p->x += dx;
-	player_box = dy > 0 ? p->size : -p->size;
+	if (dy > 0)
+		player_box = p->size;
+	else
+		player_box = -p->size;
 	if (is_texture(map, p->x, p->y + dy + player_box, TEX_FLOOR) || \
 	is_texture(map, p->x, p->y + dy + player_box, TEX_COIN))
 		p->y += dy;
