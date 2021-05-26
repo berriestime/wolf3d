@@ -94,7 +94,7 @@ void	draw_background(SDL_Surface *surface)
 		j = -1;
 		while (++j < H)
 		{
-			set_pixel(surface, i, j, COLOR_BLACK);
+			set_pixel(surface, i, j, COLOR_BLACK_HEX);
 		}
 	}
 }

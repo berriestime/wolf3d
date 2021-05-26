@@ -36,7 +36,7 @@ void	render_text(t_wolf *wolf, char *text, SDL_Rect location,
 	f_b_color[TEXT_FOREGROUND_COLOR], f_b_color[TEXT_BACKGROUND_COLOR]);
 	free(text);
 	if (txt_sur == NULL)
-		error(wolf, SDL_GetError());
+		error(SDL_GetError());
 	SDL_BlitSurface(txt_sur, NULL, wolf->surface, &location);
 	SDL_FreeSurface(txt_sur);
 }

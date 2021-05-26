@@ -12,13 +12,13 @@
 
 #include "wolf3d.h"
 
-t_distance	*t_distance_new(t_wolf *wolf)
+t_distance	*t_distance_new()
 {
 	t_distance	*new;
 
 	new = (t_distance *)malloc(sizeof(t_distance));
-	if (!(new))
-		error(wolf, ERR_MALLOC);
+	if (!new)
+		error(ERR_MALLOC);
 	return (new);
 }
 

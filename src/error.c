@@ -1,46 +1,27 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jabilbo <jabilbo@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/03 20:43:39 by jabilbo           #+#    #+#             */
-/*   Updated: 2021/05/03 20:43:48 by jabilbo          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#include "error.h"
 
-#include "wolf3d.h"
-
-int	error(t_wolf *wolf, const char *s)
+void	error(const char *s)
 {
-	ft_dprintf(STDERR_FILENO, "%s%s%s\n", C_RED, s, C_NRM);
+	ft_putstr_fd(C_RED, STDERR_FILENO);
+	ft_putstr_fd(s, STDERR_FILENO);
+	ft_putendl_fd(C_NRM, STDERR_FILENO);
 	exit(EXIT_FAILURE);
-	wolf->error_code = 1;
-	return (wolf->error_code);
 }
 
-int	error_free_s(t_wolf *wolf, char *s)
+void	error_inv_c(char *s, char inv_char)
 {
-	ft_dprintf(STDERR_FILENO, "%s%s%s\n", C_RED, s, C_NRM);
-	free(s);
+	ft_putstr_fd(C_RED, STDERR_FILENO);
+	ft_putstr_fd(s, STDERR_FILENO);
+	ft_putchar_fd(inv_char, STDERR_FILENO);
+	ft_putendl_fd(C_NRM, STDERR_FILENO);
 	exit(EXIT_FAILURE);
-	wolf->error_code = 1;
-	return (wolf->error_code);
 }
 
-int	error_inv_c(t_wolf *wolf, char *s, char inv_char)
+void	error_inv_n(char *s, int inv_num)
 {
-	ft_dprintf(STDERR_FILENO, "%s%s%c%s\n", C_RED, s, inv_char, C_NRM);
+	ft_putstr_fd(C_RED, STDERR_FILENO);
+	ft_putstr_fd(s, STDERR_FILENO);
+	ft_putnbr_fd(inv_num, STDERR_FILENO);
+	ft_putendl_fd(C_NRM, STDERR_FILENO);
 	exit(EXIT_FAILURE);
-	wolf->error_code = 1;
-	return (wolf->error_code);
-}
-
-int	error_inv_n(t_wolf *wolf, char *s, int inv_num)
-{
-	ft_dprintf(STDERR_FILENO, "%s%s%c%s\n", C_RED, s, inv_num, C_NRM);
-	exit(EXIT_FAILURE);
-	wolf->error_code = 1;
-	return (wolf->error_code);
 }

@@ -54,4 +54,9 @@
 # define ICON_PATH "textures/icon.bmp"
 # define SKY_PATH "textures/sky.bmp"
 
+# define C_NRM  "\x1B[0m"
+# define C_RED  "\x1B[31m"
+# define C_YEL  "\x1B[33m"
+# define C_GRN  "\x1B[32m"
+
 #endif

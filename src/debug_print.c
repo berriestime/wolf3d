@@ -16,8 +16,13 @@ void	debug_map(t_map *map)
 {
 	if (DEBUG)
 	{
-		ft_printf("%s MAP INFO %s\n", C_YEL, C_NRM);
-		ft_printf("\t%d map.w | %d map.h\n", map->w, map->h);
+		ft_putstr(C_YEL);
+		ft_putstr(" MAP INFO ");
+		ft_putendl(C_NRM);
+		ft_putnbr(map->w);
+		ft_putstr(" map->w | ");
+		ft_putnbr(map->h);
+		ft_putendl(" map->h");
 	}
 }
 
@@ -25,8 +30,16 @@ void	debug_player(t_player *p)
 {
 	if (DEBUG)
 	{
-		ft_printf("%s PLAYER INFO %s\n", C_GRN, C_NRM);
-		ft_printf("\t%f p.x | %f p.y\n", p->x, p->y);
-		ft_printf("\t%f p.dir  |  %f p.fov\n", p->dir, p->fov);
+		ft_putstr(C_GRN);
+		ft_putstr(" PLAYER INFO ");
+		ft_putendl(C_NRM);
+		ft_putnbr(p->x * 1000);
+		ft_putstr(" p->x | ");
+		ft_putnbr(p->y * 1000);
+		ft_putendl(" p->y");
+		ft_putnbr(p->dir * 1000);
+		ft_putstr(" p->dir | ");
+		ft_putnbr(p->fov * 1000);
+		ft_putendl(" p->fov");
 	}
 }

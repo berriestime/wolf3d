@@ -12,15 +12,15 @@
 
 #include "wolf3d.h"
 
-void	init_player(t_wolf *wolf, t_player *p, t_map *map)
+void	init_player(t_player *p, t_map *map)
 {
 	int	i;
 
 	i = -1;
 	while (++i < W)
 	{
-		p->distance_horiz[i] = t_distance_new(wolf);
-		p->distance_vert[i] = t_distance_new(wolf);
+		p->distance_horiz[i] = t_distance_new();
+		p->distance_vert[i] = t_distance_new();
 	}
 	p->size = 10;
 	p->x = CUBE * (map->player_start % map->w) + p->size;
@@ -75,13 +75,11 @@ void	init_sdl(t_wolf *wolf)
 {
 	wolf->sdl->win = SDL_CreateWindow("Wolf3d", 100, \
 	100, W, H, SDL_WINDOW_SHOWN);
-	check_error(!wolf->sdl->win, wolf, SDL_GetError());
-	check_error(!(wolf->sdl->icon = SDL_LoadBMP(ICON_PATH)),
-		wolf, SDL_GetError());
-	check_error(!(wolf->sdl->sky = SDL_LoadBMP(SKY_PATH)),
-		wolf, SDL_GetError());
+	check_error(!wolf->sdl->win, SDL_GetError());
+	check_error(!(wolf->sdl->icon = SDL_LoadBMP(ICON_PATH)), SDL_GetError());
+	check_error(!(wolf->sdl->sky = SDL_LoadBMP(SKY_PATH)), SDL_GetError());
 	check_error(!(wolf->sdl->textures = SDL_LoadBMP(TEXTURE_PATH)),
-		wolf, SDL_GetError());
+		SDL_GetError());
 	SDL_SetWindowIcon(wolf->sdl->win, wolf->sdl->icon);
 	wolf->sdl->sides_mode = 1;
 	wolf->surface = SDL_GetWindowSurface(wolf->sdl->win);

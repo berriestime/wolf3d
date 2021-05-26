@@ -68,13 +68,13 @@ FRAMEWORKS  = -F./frameworks \
 				-framework SDL2_mixer
 
 
-all: $(LIBFT) $(OBJDIR) $(NAME)
+all: $(OBJDIR) $(NAME)
 
 $(NAME): $(LIBFT) $(OBJS)
 	$(CC) $(FLAGS) $(OBJS) -L $(LIBFT_DIR) -lft -o $@ $(SDL_INCS) $(FRAMEWORKS)
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c $(INCLUDES) | $(OBJDIR)
-	$(CC) $(FLAGS) -I./includes -I./frameworks -I$(LIBFT_DIR)/includes $(SDL_INCS)  -c $< -o $@
+	$(CC) $(FLAGS) -I./includes -I./frameworks -I$(LIBFT_DIR) $(SDL_INCS)  -c $< -o $@
 
 $(OBJDIR):
 	/bin/mkdir -p $(OBJDIR)
@@ -82,15 +82,15 @@ $(OBJDIR):
 $(LIBFT): lib
 
 lib:
-	@$(COMP_LIB)
+	$(COMP_LIB)
 
 clean:
-	@/bin/rm -rf $(OBJDIR)
-	@$(COMP_LIB) clean
+	/bin/rm -rvf $(OBJDIR)
+	$(COMP_LIB) clean
 
 fclean: clean
-	@/bin/rm -rf $(NAME)
-	@$(COMP_LIB) fclean
+	/bin/rm -rvf $(NAME)
+	$(COMP_LIB) fclean
 
 re: fclean all
 

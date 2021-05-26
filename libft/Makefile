@@ -3,158 +3,94 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jabilbo <jabilbo@student.42.fr>            +#+  +:+       +#+         #
+#    By: oadhesiv <oadhesiv@student.21-school.ru>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/05/03 20:56:57 by jabilbo           #+#    #+#              #
-#    Updated: 2021/05/03 20:56:59 by jabilbo          ###   ########.fr        #
+#    Created: 2019/04/04 17:41:01 by oadhesiv          #+#    #+#              #
+#    Updated: 2021/01/28 14:58:23 by oadhesiv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME=libft.a
+LFT_FUNCTIONS_PART1 = memset bzero memcpy memccpy memmove memchr memcmp \
+	strlen strdup strcpy strncpy strcat strncat strlcat strchr strrchr strstr \
+	strnstr strcmp strncmp \
+	atoi \
+	isalpha isdigit isalnum isascii isprint \
+	toupper tolower
 
-SRC=arrays/ft_create2dchararr.c \
-bint/ft_bintaddtn.c \
-bint/ft_bintcmp.c \
-bint/ft_bintdivsn.c \
-bint/ft_bintfmt.c \
-bint/ft_bintmltpl.c \
-bint/ft_bintprepr.c \
-bint/ft_bintround.c \
-bint/ft_bintsubtrn.c \
-conversion/ft_atoi.c \
-conversion/ft_atoi_base.c \
-conversion/ft_ctoi.c \
-conversion/ft_dtoa.c \
-conversion/ft_itoa.c \
-conversion/ft_itoa_base.c \
-conversion/ft_itoc.c \
-conversion/ft_ldtoa.c \
-conversion/ft_ltoa_base.c \
-conversion/ft_uitoa_base.c \
-conversion/ft_ultoa_base.c \
-conversion/ft_utoa_base.c \
-conversion/ft_uiptrtoa_base.c \
-ctype/ft_isalnum.c \
-ctype/ft_isalpha.c \
-ctype/ft_isascii.c \
-ctype/ft_isdigit.c \
-ctype/ft_isprint.c \
-ctype/ft_isinteger.c \
-files/get_next_line.c \
-list/ft_lstadd.c \
-list/ft_lstadd.o \
-list/ft_lstdel.c \
-list/ft_lstdelone.c \
-list/ft_lstiter.c \
-list/ft_lstmap.c \
-list/ft_lstnew.c \
-math/ft_abs.c \
-math/ft_ilen.c \
-math/ft_imaxtmaxlen.c \
-math/ft_pow.c \
-math/ft_uimaxtmaxlen.c \
-math/ft_imaxval.c \
-math/ft_imaxlen.c \
-math/ft_uimaxlen.c \
-memory/ft_free2dchararr.c \
-memory/ft_bzero.c \
-memory/ft_free.c \
-memory/ft_memalloc.c \
-memory/ft_memccpy.c \
-memory/ft_memchr.c \
-memory/ft_memcmp.c \
-memory/ft_memcpy.c \
-memory/ft_memdel.c \
-memory/ft_memmove.c \
-memory/ft_memset.c \
-memory/free2dchararr_terminated.c \
-print/ft_putchar.c \
-print/ft_putchar_fd.c \
-print/ft_putendl.c \
-print/ft_putendl_fd.c \
-print/ft_putnbr.c \
-print/ft_putnbr_fd.c \
-print/ft_putstr.c \
-print/ft_putstr_fd.c \
-print/ft_putwchar.c \
-print/ft_putwchar_fd.c \
-string/ft_strjoinfree.c \
-string/ft_strndup.c \
-string/ft_strnlstrip.c \
-string/ft_strtrimend.c \
-string/ft_strtrimstart.c \
-string/ft_strcat.c \
-string/ft_strchr.c \
-string/ft_strclr.c \
-string/ft_strcmp.c \
-string/ft_strcpy.c \
-string/ft_strdel.c \
-string/ft_strdup.c \
-string/ft_strequ.c \
-string/ft_striter.c \
-string/ft_striteri.c \
-string/ft_strjoin.c \
-string/ft_strlcat.c \
-string/ft_strlen.c \
-string/ft_strlwr.c \
-string/ft_strmap.c \
-string/ft_strmapi.c \
-string/ft_strncat.c \
-string/ft_strncmp.c \
-string/ft_strncpy.c \
-string/ft_strnequ.c \
-string/ft_strnew.c \
-string/ft_strnewchr.c \
-string/ft_strnlen.c \
-string/ft_strnstr.c \
-string/ft_strrchr.c \
-string/ft_strrev.c \
-string/ft_strsplit.c \
-string/ft_strstr.c \
-string/ft_strsub.c \
-string/ft_strswap.c \
-string/ft_strtrim.c \
-string/ft_strupr.c \
-string/ft_tolower.c \
-string/ft_toupper.c \
-string/ft_strchrset.c \
-string/ft_strchrvar.c \
-dlist/dlist.c \
-dlist/dlist_node.c \
-ft_printf/ft_printf.c \
-ft_printf/ft_printf_cspr.c \
-ft_printf/ft_printf_diouxxb_printer.c \
-ft_printf/ft_printf_f.c \
-ft_printf/ft_printf_diouxxb.c \
-ft_printf/ft_printf_handle_format.c \
-ft_printf/ft_printf_select_spec.c \
-ft_printf/ft_printf_r.c \
-ft_printf/t_buf.c \
-ft_printf/ft_vprintf.c \
+LFT_FUNCTIONS_PART2 = memalloc memdel \
+	strnew strdel strclr striter striteri strmap strmapi strequ strnequ \
+	strsub strjoin strtrim strsplit \
+	itoa \
+	putchar putstr putendl putnbr \
+	putchar_fd putstr_fd putendl_fd putnbr_fd
 
-HEAD=includes/libft.h \
-	includes/get_next_line.h
+LFT_FUNCTIONS_BONUS = lstnew lstdelone lstdel lstadd lstiter lstmap
 
-OBJ=$(SRC:.c=.o)
-INCLUDES=-I./includes
+LFT_FUNCTIONS_PRSNL = atol ltoa ltoa_static ltoa_hex_static \
+	putlong putlong_fd putchar_color putstr_color \
+	print_ptr print_memory print_list \
+	strrev strtol \
+	isspace \
+	ptr_check
 
-CC=gcc -Wall -Wextra -Werror #-ffast-math -O3
-A = $(find . -type f | wc -l)
-X = 1
+LFT_FUNCTIONS = $(LFT_FUNCTIONS_PART1)\
+				$(LFT_FUNCTIONS_PART2)\
+				$(LFT_FUNCTIONS_BONUS)\
+				$(LFT_FUNCTIONS_PRSNL)
+
+FUNCTIONS = get_next_line \
+	byte_array_new byte_array_resize byte_array_add byte_array_has
+
+OBJECTS = 	$(patsubst %,objs/ft_%.o,$(LFT_FUNCTIONS)) \
+			$(patsubst %,objs/%.o,$(FUNCTIONS))
+DEPS =		$(patsubst %,objs/ft_%.d,$(LFT_FUNCTIONS)) \
+			$(patsubst %,objs/%.d,$(FUNCTIONS))
+
+OBJ_DIR = ./objs
+
+CFLAGS_ERRORS = -Wall -Wextra -Werror
+CFLAGS_OPTIMIZATIONS = -O3 -funroll-loops
+CFLAGS_DEPENDENCIES = -MMD -MP
+CFLAGS_SO = -fPIC -shared
+CFLAGS_DEBUG =	-O0 \
+				-pg -g \
+				-fno-omit-frame-pointer -mno-omit-leaf-frame-pointer \
+				-fsanitize=address
+CFLAGS :=	$(CFLAGS_ERRORS) $(CFLAGS_OPTIMIZATIONS) $(CFLAGS_DEPENDENCIES) \
+			$(CFLAGS)
+
+NAME = libft.a
+DYNN = libft.so
+
+ifeq ($(origin CC), default)
+CC = clang
+endif
+
+.PHONY: all clean fclean re so
+
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	ar rcs $(NAME) $(OBJ)  
-	@echo =================================
-	@echo $(NAME) HAS BEEN MADE          
-	@echo =================================	
+-include $(DEPS)
 
-%.o:%.c $(HEAD)
-	@$(CC) $(INCLUDES) -c $< -o $@
-	@echo $<
-		
+$(OBJ_DIR):
+	mkdir -p $(OBJ_DIR)
+
+$(NAME): $(OBJECTS)
+	ar rc $(NAME) $(OBJECTS)
+
+so: $(DYNN)
+
+$(DYNN): $(OBJECTS)
+	$(CC) $(CFLAGS_SO) -o $(DYNN) $(OBJECTS)
+
+objs/%.o: %.c | $(OBJ_DIR)
+	$(CC) $(CFLAGS) -c -o $@ $<
+
 clean:
-	/bin/rm -f $(OBJ)
+	rm -f $(OBJECTS)
+	rm -rfv objs
+
 fclean: clean
-	/bin/rm -f $(NAME)
+	rm -f $(NAME) $(DYNN)
+
 re: fclean all

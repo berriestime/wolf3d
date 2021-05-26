@@ -1,12 +1,11 @@
-# libft
-School 42 project: standart C functions library
+# Libft
 
-Summary:  The aim of this project is to code a C library regrouping usual functions that you’ll be allowed to use in all your other projects.
+Ecole 42 learning project.
 
+## Description
 
-**This implementation contains ordinary functions from the task and additional functions such as:**
-- dlist           - double-linked list basic functions
-- get_next_line   - from 42 school project "get_next_line", a C getline() implementation
-- ft_printf       - from 42 school project "ft_printf", a C printf() implementation
+This first project as a 42 student is going to help you consolidate your piscine experience. You are going to re-code several functions of the standard C library, as well as other utility functions that you will use often during your training.
 
+## Grade
 
+122/100. `ft_lstmap` doesn't pass norminette tests, even tho it is written properly (prove me wrong and also check `test_ft_lstmap.c`).

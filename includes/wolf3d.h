@@ -8,10 +8,10 @@
 # include <stdbool.h>
 # include <fcntl.h>
 # include <math.h>
-# include "ft_printf.h"
 # include "defines.h"
 # include "const.h"
 # include "colors.h"
+# include "error.h"
 # include "errors.h"
 
 typedef struct s_coin
@@ -82,21 +82,9 @@ void			debug_player(t_player *p);
 void			init_map(t_wolf *wolf, char *b);
 
 /*
-** error.q
-*/
-int				check_error_free_s(bool status, t_wolf *wolf, char *s);
-int				error_free_s(t_wolf *wolf, char *s);
-int				check_error(bool status, t_wolf *wolf, const char *s);
-int				error(t_wolf *wolf, const char *s);
-int				error_inv_c(t_wolf *wolf, char *s, char inv_char);
-int				check_error_inv_n(bool status,
-					t_wolf *wolf, char *s, int inv_num);
-int				error_inv_n(t_wolf *wolf, char *s, int inv_num);
-
-/*
 ** init.c
 */
-void			init_player(t_wolf *wolf, t_player *player, t_map *map);
+void			init_player(t_player *player, t_map *map);
 void			init_sdl(t_wolf *wolf);
 void			init_mm(t_map *map);
 void			init_tex_arr(t_wolf *wolf);
@@ -130,7 +118,7 @@ int				get_fps_time(t_bonus *bon);
 ** distance.c
 */
 t_distance		*dist_to_wall(t_wolf *wolf, float angle, int count_distance);
-t_distance		*t_distance_new(t_wolf *wolf);
+t_distance		*t_distance_new();
 void			t_distance_clear(t_distance *dist);
 void			all_get_distance(t_wolf *wolf);
 void			free_dist_arr(t_wolf *wolf);

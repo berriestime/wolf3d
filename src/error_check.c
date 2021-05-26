@@ -1,22 +1,15 @@
 #include "wolf3d.h"
 
-int	check_error(bool status, t_wolf *wolf, const char *s)
+void	check_error(bool status, const char *s)
 {
 	if (!status)
-		return (0);
-	return (error(wolf, s));
+		return ;
+	return (error(s));
 }
 
-int	check_error_free_s(bool status, t_wolf *wolf, char *s)
+void	check_error_inv_n(bool status, char *s, int inv_num)
 {
 	if (!status)
-		return (0);
-	return (error_free_s(wolf, s));
-}
-
-int	check_error_inv_n(bool status, t_wolf *wolf, char *s, int inv_num)
-{
-	if (!status)
-		return (0);
-	return (error_inv_n(wolf, s, inv_num));
+		return ;
+	return (error_inv_n(s, inv_num));
 }

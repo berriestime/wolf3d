@@ -30,7 +30,7 @@ void	init_bonus_load(t_wolf *wolf)
 	!wolf->bon->image_coin || !wolf->bon->my_font || \
 	!wolf->bon->music_guns || \
 	!wolf->bon->music || !wolf->bon->music_coin)
-		error(wolf, SDL_GetError());
+		error(SDL_GetError());
 }
 
 void	init_bonus(t_wolf *wolf)
