@@ -32,7 +32,8 @@ ALL_C = main.c \
 		set_sdl.c \
 		aux_check.c \
 		draw_check.c \
-		error_check.c
+		error_check.c \
+		t_point.c
 
 SRCDIR = ./src
 OBJDIR = ./objs

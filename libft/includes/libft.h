@@ -60,12 +60,6 @@ typedef struct s_long_double
 	t_ldbl				ldbl;
 }						t_long_double;
 
-typedef struct s_point
-{
-	int					x;
-	int					y;
-}						t_point;
-
 int						ft_abs(int n);
 int						ft_ctoi(char c);
 int						ft_itoc(int n);

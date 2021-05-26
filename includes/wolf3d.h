@@ -19,8 +19,9 @@
 # include "SDL2_mixer.framework/Headers/SDL_mixer.h"
 # include <stdbool.h>
 # include <fcntl.h>
-# include "ft_printf.h"
 # include <math.h>
+# include "ft_printf.h"
+# include "defines.h"
 # include "const.h"
 # include "colors.h"
 # include "errors.h"
