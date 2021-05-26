@@ -118,7 +118,7 @@ int				get_fps_time(t_bonus *bon);
 ** distance.c
 */
 t_distance		*dist_to_wall(t_wolf *wolf, float angle, int count_distance);
-t_distance		*t_distance_new();
+t_distance		*t_distance_new(void);
 void			t_distance_clear(t_distance *dist);
 void			all_get_distance(t_wolf *wolf);
 void			free_dist_arr(t_wolf *wolf);

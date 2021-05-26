@@ -12,7 +12,7 @@
 
 #include "wolf3d.h"
 
-t_distance	*t_distance_new()
+t_distance	*t_distance_new(void)
 {
 	t_distance	*new;
 

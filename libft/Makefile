@@ -38,8 +38,7 @@ LFT_FUNCTIONS = $(LFT_FUNCTIONS_PART1)\
 				$(LFT_FUNCTIONS_BONUS)\
 				$(LFT_FUNCTIONS_PRSNL)
 
-FUNCTIONS = get_next_line \
-	byte_array_new byte_array_resize byte_array_add byte_array_has
+FUNCTIONS = byte_array_new byte_array_resize byte_array_add byte_array_has
 
 OBJECTS = 	$(patsubst %,objs/ft_%.o,$(LFT_FUNCTIONS)) \
 			$(patsubst %,objs/%.o,$(FUNCTIONS))
