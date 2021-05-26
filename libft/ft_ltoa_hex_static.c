@@ -19,7 +19,7 @@ static char	byte_to_hex(t_byte b)
 	return ('.');
 }
 
-char		*ft_ltoa_hex_static(long n)
+char	*ft_ltoa_hex_static(long n)
 {
 	static char	buffer[DATA_MODEL_LONG_HEX_WIDTH];
 	t_ulong		tmp;
@@ -28,7 +28,10 @@ char		*ft_ltoa_hex_static(long n)
 	if (n == 0)
 		return ("0");
 	ft_bzero(buffer, DATA_MODEL_LONG_HEX_WIDTH);
-	tmp = n < 0 ? -n : n;
+	if (n < 0)
+		tmp = -n;
+	else
+		tmp = n;
 	i = 0;
 	while (tmp != 0)
 	{

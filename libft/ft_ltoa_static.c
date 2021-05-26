@@ -21,7 +21,10 @@ char	*ft_ltoa_static(long n)
 	if (n == 0)
 		return ("0");
 	ft_bzero(buffer, DATA_MODEL_LONG_DECIMAL_WIDTH);
-	tmp = n < 0 ? -n : n;
+	if (n < 0)
+		tmp = -n;
+	else
+		tmp = n;
 	i = 0;
 	while (tmp != 0)
 	{
