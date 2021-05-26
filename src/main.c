@@ -7,50 +7,35 @@ int	max(int a, int b)
 	return (b);
 }
 
-static t_wolf	*t_wolf_new(void)
+static void	validate_const(void)
 {
-	t_wolf		*new;
-
-	new = (t_wolf *)malloc(sizeof(t_wolf));
-	check_error(!new, new, ERR_MALLOC);
-	new->map = (t_map *)malloc(sizeof(t_map));
-	check_error(!new->map, new, ERR_MALLOC);
-	new->player = (t_player *)malloc(sizeof(t_player));
-	if (!(new->player))
-		error(new, ERR_MALLOC);
-	new->sdl = (t_sdl *)malloc(sizeof(t_sdl));
-	if (!(new->sdl))
-		error(new, ERR_MALLOC);
-	new->error_code = 0;
-	new->bon = (t_bonus *)malloc(sizeof(t_bonus));
-	if (!(new->bon))
-		error(new, ERR_MALLOC);
-	return (new);
-}
-
-static void	validate_const(t_wolf *wolf)
-{
-	check_error(H > W, wolf, ERR_INV_H);
-	check_error(H < 300 || W < 384, wolf, ERR_INV_RES);
-	check_error_inv_n(H > H_MAX, wolf, ERR_H_MAX, H_MAX);
-	check_error_inv_n(W > W_MAX, wolf, ERR_W_MAX, W_MAX);
+	check_error(H > W, NULL, ERR_INV_H);
+	check_error(H < 300 || W < 384, NULL, ERR_INV_RES);
+	check_error_inv_n(H > H_MAX, NULL, ERR_H_MAX, H_MAX);
+	check_error_inv_n(W > W_MAX, NULL, ERR_W_MAX, W_MAX);
 }
 
 int	main(int a, char **b)
 {
-	t_wolf		*wolf;
+	t_wolf		wolf;
+	t_map		map;
+	t_player	player;
+	t_sdl		sdl;
+	t_bonus		bonus;
 
-	wolf = NULL;
-	validate_const(wolf);
-	check_error(a != 2, wolf, ERR_USAGE);
-	check_error(SDL_Init(SDL_INIT_EVERYTHING) != 0, wolf, SDL_GetError());
-	check_error(TTF_Init() != 0, wolf, SDL_GetError());
-	wolf = t_wolf_new();
-	init_map(wolf, b[1]);
-	init_player(wolf, wolf->player, wolf->map);
-	init_bonus(wolf);
-	music(wolf->bon);
-	init_tex_arr(wolf);
-	wolf_loop(wolf);
+	wolf.map = &map;
+	wolf.player = &player;
+	wolf.sdl = &sdl;
+	wolf.bon = &bonus;
+	validate_const();
+	check_error(a != 2, NULL, ERR_USAGE);
+	check_error(SDL_Init(SDL_INIT_EVERYTHING) != 0, NULL, SDL_GetError());
+	check_error(TTF_Init() != 0, NULL, SDL_GetError());
+	init_map(&wolf, b[1]);
+	init_player(&wolf, wolf.player, wolf.map);
+	init_bonus(&wolf);
+	music(wolf.bon);
+	init_tex_arr(&wolf);
+	wolf_loop(&wolf);
 	return (0);
 }
